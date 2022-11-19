@@ -45,7 +45,7 @@ public class OJarsManager implements IReindexSupport {
         Args.notNull(fileUpload, "fileUpload");
         String fileName = fileUpload.getClientFileName();
         try {
-            File file = File.createTempFile(fileName.replaceAll("\\.jar", ""), ".jar");
+            File file = Files.createTempFile(fileName.replaceAll("\\.jar", ""), ".jar").toFile();
             fileUpload.writeTo(file);
             return file;
         } catch (Exception e) {

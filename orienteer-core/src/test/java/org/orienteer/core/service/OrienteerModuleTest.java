@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
 import java.util.Properties;
 
 import static org.junit.Assert.*;
@@ -36,7 +37,7 @@ public class OrienteerModuleTest {
 			Properties result = StartupPropertiesLoader.retrieveProperties();
 			assertNotNull(result);
 			//system property set
-			File propertyFile = File.createTempFile("orienteer-test-temp", ".properties");
+			File propertyFile = Files.createTempFile("orienteer-test-temp", ".properties").toFile();
 			
 			{
 				FileWriter writer = new FileWriter(propertyFile);
